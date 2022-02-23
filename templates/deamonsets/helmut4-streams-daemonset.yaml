@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Values.appname }}-streams
+  namespace: {{.Values.namespace }}
+  labels:
+    app: {{ .Values.appname }}
+    component: streams
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appname }}
+        component: streams
+    spec:
+      imagePullSecrets:
+      - name: public.repo.moovit24.de
+      containers:
+      - name: {{ .Values.appname }}-streams
+        image: "{{ .Values.images.mcc_streams.name }}:{{ .Values.images.mcc_streams.version }}"
+        imagePullPolicy: {{ .Values.images.mcc_streams.pullPolicy }}
+        resources: 
+{{- include "containerResources" . | indent 10 }}        
+{{- include "helmut.args" . | indent 8 }}        
+        env:
+        - name: parameters
+          value: |-           
+{{- include "helmut.env" . | indent 12}}

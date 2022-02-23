@@ -1,0 +1,17 @@
+apiVersion: v1                       
+kind: Service                        
+metadata:                            
+ name: {{ .Values.appname }}-hk
+ namespace: {{ .Values.namespace }}
+ labels:
+   app: {{ .Values.appname }}
+   component: hk
+spec:                                
+ type: ClusterIP 
+ selector:                          
+   app: {{ .Values.appname }}
+   component: hk
+ ports:                             
+   - name:                      
+     port: 8103
+     targetPort: 8103

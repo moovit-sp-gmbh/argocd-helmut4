@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: helmut-io-daemonset
+  labels:
+    app: helmut
+    component: io
+spec:
+  selector:
+    matchLabels:
+      app: helmut
+  template:
+    metadata:
+      labels:
+        app: helmut
+        component: io
+    spec:
+      imagePullSecrets:
+      - name: moovit-docker-registry
+      containers:
+      - name: io
+        image: "repo.moovit24.de:443/mcp_io:{{ .Values.images.versions.mcp_io }}"
+        command: ["/bin/sh", "-c"]
+        args: ["java -XX:+UseSerialGC -Djava.security.egd=file:/dev/./urandom -jar /app/app.jar ${parameters}"]
+        env:
+        - name: parameters
+          value: |- 
+{{- include "helpers.helmut.env" . | indent 12 }}
+
+---
+
+apiVersion: v1                       
+kind: Service                        
+metadata:                            
+ name: helmut-io-svc
+ labels:
+   app: helmut
+   component: io
+spec:                                
+ type: ClusterIP                     
+ selector:                          
+   app: helmut
+   component: io
+ ports:                             
+   - name:                      
+     port: 8102
+     targetPort: 8102

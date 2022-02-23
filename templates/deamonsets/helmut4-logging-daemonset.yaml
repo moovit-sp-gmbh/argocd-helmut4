@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Values.appname }}-logging
+  namespace: {{.Values.namespace }}
+  labels:
+    app: {{ .Values.appname }}
+    component: logging
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appname }}
+        component: logging
+    spec:
+      imagePullSecrets:
+      - name: public.repo.moovit24.de
+      containers:
+      - name: {{ .Values.appname }}-logging
+        image: "{{ .Values.images.mcc_logging.name }}:{{ .Values.images.mcc_logging.version }}"
+        imagePullPolicy: {{ .Values.images.mcc_logging.pullPolicy }}
+        resources: 
+{{- include "containerResources" . | indent 10 }}        
+{{- include "helmut.args" . | indent 8 }}        
+        env:
+        - name: parameters
+          value: |-           
+{{- include "helmut.env" . | indent 12}}

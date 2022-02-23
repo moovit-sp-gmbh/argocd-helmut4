@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: helmut-hw-daemonset
+  labels:
+    app: helmut
+    component: hw
+spec:
+  selector:
+    matchLabels:
+      app: helmut
+  template:
+    metadata:
+      labels:
+        app: helmut
+        component: hw
+    spec:
+      imagePullSecrets:
+      - name: moovit-docker-registry
+      containers:
+      - name: hw
+        image: "repo.moovit24.de:443/mcp_hw:{{ .Values.images.versions.mcp_hw }}"
+
+---
+
+apiVersion: v1                       
+kind: Service                        
+metadata:                            
+ name: helmut-hw-svc
+ labels:
+   app: helmut
+   component: hw
+spec:                                
+ type: ClusterIP                     
+ selector:                          
+   app: helmut
+   component: hw
+ ports:                             
+   - name:                      
+     port: 8080
+     targetPort: 8080
