@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: {{ .Values.appname }}-io
-  namespace: {{.Values.namespace }}
   labels:
     app: {{ .Values.appname }}
     component: io

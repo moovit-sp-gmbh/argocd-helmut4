@@ -1,8 +1,7 @@
 appname: helmut4
-namespace: helmut4
 
 nodePorts:
-  traefik: 
+  traefik:
     port: 30005
     addresses: 0.0.0.0 #comma separated list of ip's to listen to
 
@@ -15,36 +14,36 @@ containerResources:
       memory: "500Mi"
       cpu: "500m"
 
-images: 
+images:
   mcp_fx:
     name: repo.moovit24.de:443/mcp_fx
     version: 4.0.7.4
     imagePullPolicy: IfNotPresent
-  mcp_io: 
+  mcp_io:
     name: repo.moovit24.de:443/mcp_io
     version: 4.0.7.7
     imagePullPolicy: IfNotPresent
-  mcp_co: 
+  mcp_co:
     name: repo.moovit24.de:443/mcp_co
     version: 4.0.7.6
     imagePullPolicy: IfNotPresent
-  mcp_hk: 
+  mcp_hk:
     name: repo.moovit24.de:443/mcp_hk
     version: 4.0.7.6
     imagePullPolicy: IfNotPresent
-  mcp_hw: 
+  mcp_hw:
     name: repo.moovit24.de:443/mcp_hw
     version: 4.0.7.17
     imagePullPolicy: IfNotPresent
-  mcp_hp: 
+  mcp_hp:
     name: repo.moovit24.de:443/mcp_hp
     version: 4.0.7.12
     imagePullPolicy: IfNotPresent
-  mcc_amqp: 
+  mcc_amqp:
     name: repo.moovit24.de:443/mcc_amqp
     version: 4.0.7.1
     imagePullPolicy: IfNotPresent
-  mcc_cronjob: 
+  mcc_cronjob:
     name: repo.moovit24.de:443/mcc_cronjob
     version: 4.0.7.1
     imagePullPolicy: IfNotPresent
@@ -52,15 +51,15 @@ images:
     name: repo.moovit24.de:443/mcc_language
     version: 4.0.7.2
     imagePullPolicy: IfNotPresent
-  mcc_license: 
+  mcc_license:
     name: repo.moovit24.de:443/mcc_license
     version: 4.0.7.4
     imagePullPolicy: IfNotPresent
-  mcc_logging: 
+  mcc_logging:
     name: repo.moovit24.de:443/mcc_logging
     version: 4.0.7.5
     imagePullPolicy: IfNotPresent
-  mcc_metadata: 
+  mcc_metadata:
     name: repo.moovit24.de:443/mcc_metadata
     version: 4.0.7.2
     imagePullPolicy: IfNotPresent
@@ -80,15 +79,15 @@ images:
     name: repo.moovit24.de:443/mcc_mongodb
     version: 4.0.7.9
     imagePullPolicy: IfNotPresent
-  mcc_mongodb_admin: 
-   name: repo.moovit24.de:443/mcc_mongodb_admin
-   version: 4.0.1.1
-   imagePullPolicy: IfNotPresent
+  mcc_mongodb_admin:
+    name: repo.moovit24.de:443/mcc_mongodb_admin
+    version: 4.0.1.1
+    imagePullPolicy: IfNotPresent
   mcc_mongodb_backup:
-   name: repo.moovit24.de:443/mcc_mongodb_backup
-   version: 4.1.0.4
-   imagePullPolicy: IfNotPresent
-  mcc_rabbitmq: 
+    name: repo.moovit24.de:443/mcc_mongodb_backup
+    version: 4.1.0.4
+    imagePullPolicy: IfNotPresent
+  mcc_rabbitmq:
     name: repo.moovit24.de:443/mcc_rabbitmq
     version: 4.0.7.3
     imagePullPolicy: IfNotPresent
@@ -108,7 +107,5 @@ mongodbSettings:
   password: bitte
   backup:
     CRON_TIME: 0 */4 * * *
-    MAX_BACKUPS:  180
+    MAX_BACKUPS: 180
     INIT_BACKUP: true
-
-  

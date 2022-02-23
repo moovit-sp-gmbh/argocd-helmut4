@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.appname }}-rabbitmq
-  namespace: {{.Values.namespace }}
   labels:
     app: {{ .Values.appname }}
     component: rabbitmq
