@@ -2,5 +2,5 @@ apiVersion: v2
 name: helmut
 description: The helm chart for Helmut4
 type: application
-version: 4.0.7-1
-appVersion: 4.0.7.1
+version: 4.1.1
+appVersion: 4.1.1
