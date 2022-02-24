@@ -21,6 +21,12 @@ data:
         scrape_interval: 5s
         metrics_path: '/metrics'
         static_configs:
+{{printf "- targets: ['%s-traefik-metrics:8082']" .Values.appname | indent 10}}        
+
+      - job_name: 'traefik-raw'
+        scrape_interval: 5s
+        metrics_path: '/metrics'
+        static_configs:
 {{printf "- targets: ['%s-traefik:8082']" .Values.appname | indent 10}}        
 
       - job_name: 'prometheus'

@@ -11,7 +11,7 @@ spec:
    app: {{ .Values.appname }}
    component: traefik
  ports:                             
-   - name:                      
+   - name: traefik              
      port: 80
      targetPort: 80
      nodePort: {{ .Values.nodePorts.traefik.port }}
@@ -29,6 +29,6 @@ spec:
    app: {{ .Values.appname }}
    component: traefik
  ports:                             
-   - name:                      
+   - name: traefik-metrics              
      port: 8082
      targetPort: 8082
