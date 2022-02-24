@@ -23,6 +23,7 @@ data:
         static_configs:
 {{printf "- targets: ['%s-traefik:8082']" .Values.appname | indent 10}}        
 
+
       - job_name: 'prometheus'
         scrape_interval: 5s
         basic_auth:
