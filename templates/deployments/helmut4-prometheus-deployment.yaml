@@ -20,9 +20,11 @@ spec:
       - name: {{ .Values.appname }}-prometheus
         image: "{{ .Values.images.prometheus.name }}:{{ .Values.images.prometheus.version }}"
         imagePullPolicy: {{ .Values.images.prometheus.pullPolicy }}
+        resources: 
+{{- include "containerResources" . | indent 10 }}   
         volumeMounts:
         - name: {{.Values.appname}}-prometheus
-          mountPath: /etc/prometheus
+          mountPath: /etc/prometheus/prometheus.yml
           subPath: prometheus.yml
       volumes:
       - name: {{.Values.appname}}-prometheus
