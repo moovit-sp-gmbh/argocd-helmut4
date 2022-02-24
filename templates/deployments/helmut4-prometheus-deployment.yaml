@@ -20,11 +20,10 @@ spec:
       - name: {{ .Values.appname }}-prometheus
         image: "{{ .Values.images.prometheus.name }}:{{ .Values.images.prometheus.version }}"
         imagePullPolicy: {{ .Values.images.prometheus.pullPolicy }}
-        ports:
-        - containerPort: 9090
         volumeMounts:
         - name: {{.Values.appname}}-prometheus
           mountPath: /etc/prometheus
+          subPath: prometheus.yml
       volumes:
       - name: {{.Values.appname}}-prometheus
         configMap:
