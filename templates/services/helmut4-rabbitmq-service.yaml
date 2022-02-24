@@ -11,6 +11,9 @@ spec:
    app: {{ .Values.appname }}
    component: rabbitmq
  ports:                             
+  - name: rabbitmq-prometheus
+    port: 15692
+    targetPort: 15692
   - name: rabbitmq-webstomp
     port: 15674
     targetPort: 15674
