@@ -15,7 +15,7 @@ data:
         scrape_interval: 5s
         metrics_path: '/metrics'
         static_configs:
-          - targets: ['helmut4-rabbitmq:15692']
+{{printf "- targets: ['%s-rabbitmq:15692']" .Values.appname | indent 10}}        
 
       - job_name: 'prometheus'
         scrape_interval: 5s

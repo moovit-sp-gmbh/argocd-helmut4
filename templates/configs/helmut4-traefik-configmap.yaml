@@ -98,7 +98,7 @@ data:
       [http.services]
         [http.services.fx]
           [http.services.fx.loadBalancer]
-            [[http.services.fx.loadBalancer.servers]]
+            [[http.services.fx.loadBalancer.servers]]            
 {{printf "url = \"http://%s-fx:8100\"" .Values.appname | indent 14}}
         [http.services.co]
           [http.services.co.loadBalancer]
