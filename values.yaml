@@ -75,21 +75,21 @@ images:
     name: repo.moovit24.de:443/mcc_users
     version: 4.1.0.1
     imagePullPolicy: IfNotPresent
-  mcc_mongodb:
-    name: repo.moovit24.de:443/mcc_mongodb
-    version: 4.0.7.9
-    imagePullPolicy: IfNotPresent
-  mcc_mongodb_admin:
-    name: repo.moovit24.de:443/mcc_mongodb_admin
-    version: 4.0.1.1
-    imagePullPolicy: IfNotPresent
-  mcc_mongodb_backup:
-    name: repo.moovit24.de:443/mcc_mongodb_backup
-    version: 4.1.0.4
-    imagePullPolicy: IfNotPresent
+  # mcc_mongodb:
+  #   name: repo.moovit24.de:443/mcc_mongodb
+  #   version: 4.0.7.9
+  #   imagePullPolicy: IfNotPresent
+  # mcc_mongodb_admin:
+  #   name: repo.moovit24.de:443/mcc_mongodb_admin
+  #   version: 4.0.1.1
+  #   imagePullPolicy: IfNotPresent
+  # mcc_mongodb_backup:
+  #   name: repo.moovit24.de:443/mcc_mongodb_backup
+  #   version: 4.1.0.4
+  #   imagePullPolicy: IfNotPresent
   mcc_rabbitmq:
-    name: repo.moovit24.de:443/mcc_rabbitmq
-    version: 4.0.7.3
+    name: repo.moovit24.de:443/sev_rabbitmq
+    version: 1.0.0.1
     imagePullPolicy: IfNotPresent
   mcc_traefik:
     name: repo.moovit24.de:443/mcc_traefik
