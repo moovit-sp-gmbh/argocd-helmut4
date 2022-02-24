@@ -3,8 +3,7 @@
 {{- end }}
 
 {{- define "helmut.env"}}
-#{{printf "--spring.data.mongodb.uri=mongodb://%s:%s@%s-mongodb:%s/admin" .Values.mongodbSettings.username .Values.mongodbSettings.password .Values.appname (.Values.mongodbSettings.port | toString) }}
-{{printf "--spring.data.mongodb.uri=mongodb+srv://%s:%s@cluster0.xmfdv.mongodb.net/helmut4" .Values.mongodbSettings.username .Values.mongodbSettings.password  }}
+{{printf "--spring.data.mongodb.uri=mongodb://%s:%s@%s-mongodb:%s/admin" .Values.mongodbSettings.username .Values.mongodbSettings.password .Values.appname (.Values.mongodbSettings.port | toString) }}
 {{printf "--spring.rabbitmq.host=%s-rabbitmq" .Values.appname}}
 {{printf "--mcc.fx.url=http://%s-fx:8100/v1/fx" .Values.appname}}
 {{printf "--mcc.co.url=http://%s-co:8101/v1/co" .Values.appname}}
