@@ -14,10 +14,16 @@ data:
       - job_name: 'rabbitmq'
         scrape_interval: 5s
         metrics_path: '/metrics'
+        basic_auth:
+          username: 'admin'
+          password: 'bitte0479'
         static_configs:
 {{printf "- targets: ['%s-rabbitmq:15692']" .Values.appname | indent 10}}        
 
       - job_name: 'prometheus'
         scrape_interval: 5s
+        basic_auth:
+          username: 'admin'
+          password: 'bitte0479'
         static_configs:
           - targets: ['localhost:9090']
