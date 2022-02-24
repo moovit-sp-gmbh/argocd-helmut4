@@ -99,9 +99,9 @@ images:
     version: 4.0.5.3
     imagePullPolicy: IfNotPresent
   prometheus:
-    repository: prom/prometheus
-    tag: v2.33.4
-    pullPolicy: IfNotPresent
+    name: prom/prometheus
+    version: v2.33.4
+    imagePullPolicy: IfNotPresent
 
 registryCredentials:
   registry: repo.moovit24.de:443
