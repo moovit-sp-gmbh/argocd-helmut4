@@ -4,6 +4,9 @@ nodePorts:
   traefik:
     port: 30000
     addresses: 0.0.0.0 #comma separated list of ip's to listen to
+  prometheus:
+    port: 30001
+    addresses: 0.0.0.0 #comma separated list of ip's to listen to
 
 containerResources:
   resources:
@@ -95,6 +98,10 @@ images:
     name: repo.moovit24.de:443/mcc_traefik
     version: 4.0.5.3
     imagePullPolicy: IfNotPresent
+  prometheus:
+    repository: prom/prometheus
+    tag: v2.33.4
+    pullPolicy: IfNotPresent
 
 registryCredentials:
   registry: repo.moovit24.de:443
