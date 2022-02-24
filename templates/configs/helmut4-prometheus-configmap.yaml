@@ -19,6 +19,7 @@ data:
 
       - job_name: 'traefik'
         scrape_interval: 5s
+        metrics_path: ''
         static_configs:
 {{printf "- targets: ['%s-traefik:8082']" .Values.appname | indent 10}}        
 
