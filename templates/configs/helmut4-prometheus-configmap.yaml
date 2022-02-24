@@ -17,6 +17,12 @@ data:
         static_configs:
 {{printf "- targets: ['%s-rabbitmq:15692']" .Values.appname | indent 10}}        
 
+    scrape_configs:
+      - job_name: 'traefik'
+        scrape_interval: 5s
+        static_configs:
+{{printf "- targets: ['%s-traefik:8082']" .Values.appname | indent 10}}        
+
       - job_name: 'prometheus'
         scrape_interval: 5s
         basic_auth:

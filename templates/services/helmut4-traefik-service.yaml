@@ -15,3 +15,20 @@ spec:
      port: 80
      targetPort: 80
      nodePort: {{ .Values.nodePorts.traefik.port }}
+---
+apiVersion: v1                       
+kind: Service                        
+metadata:                            
+ name: {{ .Values.appname }}-prometheus
+ labels:
+   app: {{ .Values.appname }}
+   component: prometheus
+spec:                                
+ type: ClusterIP 
+ selector:                          
+   app: {{ .Values.appname }}
+   component: prometheus
+ ports:                             
+   - name:                      
+     port: 8020
+     targetPort: 8020
