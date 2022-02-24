@@ -9,11 +9,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: prometheus
+      app: {{ .Values.appname }}
   template:
     metadata:
       labels:
-        app: prometheus
+        app: {{ .Values.appname }}
+        component: prometheus
     spec:
       containers:
       - name: {{ .Values.appname }}-prometheus

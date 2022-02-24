@@ -6,6 +6,7 @@ metadata:
     app: {{ .Values.appname }}
     component: rabbitmq
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: {{ .Values.appname }}
