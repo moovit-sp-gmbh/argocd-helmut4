@@ -1,32 +1,32 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ .Values.appname }}-prometheus
-  labels:
-    app: {{ .Values.appname }}
-    component: prometheus
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: {{ .Values.appname }}
-  template:
-    metadata:
-      labels:
-        app: {{ .Values.appname }}
-        component: prometheus
-    spec:
-      containers:
-      - name: {{ .Values.appname }}-prometheus
-        image: "{{ .Values.images.prometheus.name }}:{{ .Values.images.prometheus.version }}"
-        imagePullPolicy: {{ .Values.images.prometheus.pullPolicy }}
-        resources: 
-{{- include "containerResources" . | indent 10 }}   
-        volumeMounts:
-        - name: {{.Values.appname}}-prometheus
-          mountPath: /etc/prometheus/prometheus.yml
-          subPath: prometheus.yml
-      volumes:
-      - name: {{.Values.appname}}-prometheus
-        configMap:
-          name: {{.Values.appname}}-prometheus
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: {{ .Values.appname }}-prometheus
+#   labels:
+#     app: {{ .Values.appname }}
+#     component: prometheus
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: {{ .Values.appname }}
+#   template:
+#     metadata:
+#       labels:
+#         app: {{ .Values.appname }}
+#         component: prometheus
+#     spec:
+#       containers:
+#       - name: {{ .Values.appname }}-prometheus
+#         image: "{{ .Values.images.prometheus.name }}:{{ .Values.images.prometheus.version }}"
+#         imagePullPolicy: {{ .Values.images.prometheus.pullPolicy }}
+#         resources: 
+# {{- include "containerResources" . | indent 10 }}   
+#         volumeMounts:
+#         - name: {{.Values.appname}}-prometheus
+#           mountPath: /etc/prometheus/prometheus.yml
+#           subPath: prometheus.yml
+#       volumes:
+#       - name: {{.Values.appname}}-prometheus
+#         configMap:
+#           name: {{.Values.appname}}-prometheus
