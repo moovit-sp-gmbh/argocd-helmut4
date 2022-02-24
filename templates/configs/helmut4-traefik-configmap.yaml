@@ -12,9 +12,15 @@ data:
       dashboard = true
       insecure = false
 
+    [metrics]
+      [metrics.prometheus]
+        entryPoint = "metrics"
+
     [entryPoints]
       [entryPoints.helmut]
         address = ":80"
+      [entryPoints.metrics]
+        address = ":8082"
 
     [providers]
       [providers.file]
