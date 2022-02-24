@@ -22,12 +22,12 @@ metadata:
  name: {{ .Values.appname }}-traefik-metrics
  labels:
    app: {{ .Values.appname }}
-   component: traefik-metrics
+   component: traefik
 spec:                                
  type: ClusterIP 
  selector:                          
    app: {{ .Values.appname }}
-   component: traefik-metrics
+   component: traefik
  ports:                             
    - name:                      
      port: 8020
