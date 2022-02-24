@@ -19,15 +19,15 @@ spec:
 apiVersion: v1                       
 kind: Service                        
 metadata:                            
- name: {{ .Values.appname }}-prometheus
+ name: {{ .Values.appname }}-traefik-metrics
  labels:
    app: {{ .Values.appname }}
-   component: prometheus
+   component: traefik-metrics
 spec:                                
  type: ClusterIP 
  selector:                          
    app: {{ .Values.appname }}
-   component: prometheus
+   component: traefik-metrics
  ports:                             
    - name:                      
      port: 8020
