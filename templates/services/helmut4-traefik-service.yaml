@@ -30,5 +30,5 @@ spec:
    component: traefik
  ports:                             
    - name:                      
-     port: 8020
-     targetPort: 8020
+     port: 8082
+     targetPort: 8082
