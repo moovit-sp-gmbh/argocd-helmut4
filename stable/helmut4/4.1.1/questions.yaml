@@ -4,7 +4,15 @@ groups:
   - name: "Port"
     description: "Configure Helmut4 Port"
   
-
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "/"
 
 questions:
   - variable: volumeMounts 
@@ -41,7 +49,7 @@ questions:
       type: dict
       required: true
       attrs:
-        - variable: nodePort
+        - variable: nodePorts.traefik.port
           label: "Node Port to use for Helmut4"
           schema:
             type: int
