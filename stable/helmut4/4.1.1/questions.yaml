@@ -46,6 +46,7 @@ questions:
     label: "Port configuration for Helmut4"
     group: "Port"
     schema:
+      type: dict
       required: true
       attrs:
         - variable: traefik
