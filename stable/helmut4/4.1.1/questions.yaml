@@ -43,14 +43,15 @@ questions:
 
   - variable: nodePorts
     description: "Networking Configuration"
+    label: "Port configuration for Helmut4"
     group: "Port"
     schema:
       required: true
       attrs:
         - variable: traefik
+          label: "Node Port to use for Helmut4"
           schema:
-            type: dict
-            require: true
+            required: true
             attrs:
               - variable: port
                 label: "Node Port to use for Helmut4"
