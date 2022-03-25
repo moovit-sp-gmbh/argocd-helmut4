@@ -23,6 +23,7 @@ questions:
                 label: "Mount Path in Pod"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
+                  default: /Volumes/helmut
                   type: path
                   required: true
               - variable: hostPath
@@ -31,7 +32,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  
+
   - variable: ports
     description: "Networking Configuration"
     label: "Port configuration for Helmut4"
