@@ -76,12 +76,12 @@ images:
     version: 4.1.0.1
     imagePullPolicy: IfNotPresent
   mcc_rabbitmq:
-    name: repo.moovit24.de:443/sev_rabbitmq
-    version: 1.0.0.1
+    name: repo.moovit24.de:443/mcc_rabbitmq
+    version: 4.1.0.0
     imagePullPolicy: IfNotPresent
   mcc_traefik:
     name: repo.moovit24.de:443/mcc_traefik
-    version: 4.0.5.0 # with open prometheus port 8082
+    version: 4.0.5.3
     imagePullPolicy: IfNotPresent
   mcc_mongodb:
     name: repo.moovit24.de:443/mcc_mongodb
