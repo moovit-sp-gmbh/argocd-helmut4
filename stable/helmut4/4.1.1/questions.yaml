@@ -15,13 +15,13 @@ portals:
     path: "/"
 
 questions:
-  - variable: volumeMounts 
+  - variable: appVolumeMounts 
     label: "Helmut4 Host Path Volumes"
     group: "Storage"
     schema:
       type: list
       items:
-        - variable: volumeMount
+        - variable: extraAppVolumeMounts
           label: "Helmut4 Host Path Volume"
           description: "Add a host path volume for Helmut4 application"
           schema:

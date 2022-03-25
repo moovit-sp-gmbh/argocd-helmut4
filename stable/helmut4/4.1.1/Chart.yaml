@@ -1,6 +1,10 @@
 
 apiVersion: v2
 appVersion: "4.1.1"
+dependencies:
+- name: common
+  repository: file://../../../library/common/2112.0.0
+  version: 2112.0.0
 description: Helmut4
 home: https://github.com/moovit-sp-gmbg/argocd-helmut4
 icon: https://helmut.de/static/bf6eb49cfe541dd3c98e9684432dbd64/ef0a3/helmut-logo-small.png
