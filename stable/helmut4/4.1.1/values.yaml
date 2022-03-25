@@ -1,10 +1,8 @@
 appname: helmut4
 
-traefikNodePort: 30000
-
 nodePorts:
   traefik:
-    port: {{ traefikNodePort }}
+    port: 30000
     addresses: 0.0.0.0 #comma separated list of ip's to listen to
 
 containerResources:
