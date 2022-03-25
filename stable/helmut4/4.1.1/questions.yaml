@@ -1,9 +1,9 @@
 groups:
   - name: "Storage"
-    description: "Configure Storage for Helmut"
+    description: "Configure Storage for Chia"
   - name: "Farmr.net Configuration"
-    description: "Port"
-  - name: "Configure the Port for Helmut4"
+    description: "Configure farmr.net support"
+  - name: "Chia Environment Variables"
     description: "Set the environment that will be visible to the container"
   - name: "Networking"
     description: "Configure networking for Chia container"
