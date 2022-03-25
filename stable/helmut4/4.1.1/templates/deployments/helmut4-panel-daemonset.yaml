@@ -1,10 +1,10 @@
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
-  name: {{ .Values.appname }}-web
+  name: {{ .Values.appname }}-panel
   labels:
     app: {{ .Values.appname }}
-    component: web
+    component: panel
 spec:
   selector:
     matchLabels:
@@ -13,13 +13,13 @@ spec:
     metadata:
       labels:
         app: {{ .Values.appname }}
-        component: web
+        component: panel
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
       containers:
-      - name: {{ .Values.appname }}-web
-        image: "{{ .Values.images.mcp_hw.name }}:{{ .Values.images.mcp_hw.version }}"
-        imagePullPolicy: {{ .Values.images.mcp_hw.pullPolicy }}
+      - name: {{ .Values.appname }}-panel
+        image: "{{ .Values.images.mcp_hp.name }}:{{ .Values.images.mcp_hp.version }}"
+        imagePullPolicy: {{ .Values.images.mcp_hp.pullPolicy }}
         resources: 
 {{- include "containerResources" . | indent 10 }}

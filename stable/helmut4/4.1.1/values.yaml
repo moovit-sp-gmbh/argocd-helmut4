@@ -4,9 +4,6 @@ nodePorts:
   traefik:
     port: 30000
     addresses: 0.0.0.0 #comma separated list of ip's to listen to
-  prometheus:
-    port: 30001
-    addresses: 0.0.0.0 #comma separated list of ip's to listen to
 
 containerResources:
   resources:

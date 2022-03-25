@@ -1,10 +1,10 @@
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
-  name: {{ .Values.appname }}-amqp
+  name: {{ .Values.appname }}-io
   labels:
     app: {{ .Values.appname }}
-    component: amqp
+    component: io
 spec:
   selector:
     matchLabels:
@@ -13,18 +13,18 @@ spec:
     metadata:
       labels:
         app: {{ .Values.appname }}
-        component: amqp
+        component: io
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
       containers:
-      - name: {{ .Values.appname }}-amqp
-        image: "{{ .Values.images.mcc_amqp.name }}:{{ .Values.images.mcc_amqp.version }}"
-        imagePullPolicy: {{ .Values.images.mcc_amqp.pullPolicy }}
+      - name: {{ .Values.appname }}-io
+        image: "{{ .Values.images.mcp_io.name }}:{{ .Values.images.mcp_io.version }}"
+        imagePullPolicy: {{ .Values.images.mcp_io.pullPolicy }}
         resources: 
 {{- include "containerResources" . | indent 10 }}
-{{- include "helmut.args" . | indent 8 }}
+{{- include "helmut.args" . | indent 8 }}        
         env:
         - name: parameters
-          value: |-                     
+          value: |-           
 {{- include "helmut.env" . | indent 12}}

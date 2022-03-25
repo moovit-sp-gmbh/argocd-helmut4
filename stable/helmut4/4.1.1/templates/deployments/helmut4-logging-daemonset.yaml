@@ -1,10 +1,10 @@
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
-  name: {{ .Values.appname }}-streams
+  name: {{ .Values.appname }}-logging
   labels:
     app: {{ .Values.appname }}
-    component: streams
+    component: logging
 spec:
   selector:
     matchLabels:
@@ -13,14 +13,14 @@ spec:
     metadata:
       labels:
         app: {{ .Values.appname }}
-        component: streams
+        component: logging
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
       containers:
-      - name: {{ .Values.appname }}-streams
-        image: "{{ .Values.images.mcc_streams.name }}:{{ .Values.images.mcc_streams.version }}"
-        imagePullPolicy: {{ .Values.images.mcc_streams.pullPolicy }}
+      - name: {{ .Values.appname }}-logging
+        image: "{{ .Values.images.mcc_logging.name }}:{{ .Values.images.mcc_logging.version }}"
+        imagePullPolicy: {{ .Values.images.mcc_logging.pullPolicy }}
         resources: 
 {{- include "containerResources" . | indent 10 }}        
 {{- include "helmut.args" . | indent 8 }}        

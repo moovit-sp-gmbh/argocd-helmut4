@@ -1,7 +1,7 @@
 {{ svcName := "metadata" }}
 
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
   name: helmut-{{ $svcName }}-daemonset
   labels:

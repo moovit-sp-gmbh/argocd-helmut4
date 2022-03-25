@@ -1,10 +1,10 @@
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
-  name: {{ .Values.appname }}-hk
+  name: {{ .Values.appname }}-co
   labels:
     app: {{ .Values.appname }}
-    component: hk
+    component: co
 spec:
   selector:
     matchLabels:
@@ -13,14 +13,14 @@ spec:
     metadata:
       labels:
         app: {{ .Values.appname }}
-        component: hk
+        component: co
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
       containers:
-      - name: {{ .Values.appname }}-hk
-        image: "{{ .Values.images.mcp_hk.name }}:{{ .Values.images.mcp_hk.version }}"
-        imagePullPolicy: {{ .Values.images.mcp_hk.pullPolicy }}
+      - name: {{ .Values.appname }}-co
+        image: "{{ .Values.images.mcp_co.name }}:{{ .Values.images.mcp_co.version }}"
+        imagePullPolicy: {{ .Values.images.mcp_co.pullPolicy }}
         resources: 
 {{- include "containerResources" . | indent 10 }}        
 {{- include "helmut.args" . | indent 8 }}        
