@@ -52,6 +52,7 @@ questions:
           label: "Node Port to use for Helmut4"
           schema:
             required: true
+            type: dict
             attrs:
               - variable: port
                 label: "Node Port to use for Helmut4"
