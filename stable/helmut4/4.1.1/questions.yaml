@@ -1,18 +1,22 @@
 groups:
   - name: "Storage"
-    description: "Configure Storage for Helmut4"
+    description: "Configure Storage for Helmut"
   - name: "Farmr.net Configuration"
     description: "Port"
+  - name: "Configure the Port for Helmut4"
+    description: "Set the environment that will be visible to the container"
+  - name: "Networking"
+    description: "Configure networking for Chia container"
 
-# portals:
-#   web_portal:
-#     protocols:
-#       - "https"
-#     host:
-#       - "www.truepool.io"
-#     ports:
-#       - "443"
-#     path: "/kb/truepool-docker-image/"
+portals:
+  web_portal:
+    protocols:
+      - "https"
+    host:
+      - "www.truepool.io"
+    ports:
+      - "443"
+    path: "/kb/truepool-docker-image/"
 
 questions:
   - variable: farmr_env
