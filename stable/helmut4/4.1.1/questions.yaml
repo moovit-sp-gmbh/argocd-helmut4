@@ -45,7 +45,6 @@ questions:
     description: "Networking Configuration"
     group: "Port"
     schema:
-      type: dict
       required: true
       attrs:
         - variable: traefik
