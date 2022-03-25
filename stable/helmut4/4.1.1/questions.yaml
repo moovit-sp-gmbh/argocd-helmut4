@@ -41,19 +41,23 @@ questions:
                   type: hostpath
                   required: true
 
-  - variable: ports
+  - variable: nodePorts
     description: "Networking Configuration"
-    label: "Port configuration for Helmut4"
     group: "Port"
     schema:
       type: dict
       required: true
       attrs:
-        - variable: nodePorts.traefik.port
-          label: "Node Port to use for Helmut4"
+        - variable: traefik
           schema:
-            type: int
-            min: 8000
-            max: 65535
-            default: 8080
-            required: true
+            type: dict
+            require: true
+            attrs:
+              - variable: port
+                label: "Node Port to use for Helmut4"
+                schema:
+                  type: int
+                  min: 8000
+                  max: 65535
+                  default: 8080
+                  required: true
