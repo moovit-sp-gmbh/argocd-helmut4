@@ -1,1 +1,4 @@
-
+image:
+  pullPolicy: IfNotPresent
+  repository: repo.moovit24.de:443/mcp_fx
+  tag: 4.1.0.1
