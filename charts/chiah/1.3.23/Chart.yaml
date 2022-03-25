@@ -7,7 +7,7 @@ keywords:
 - storage
 - crypto
 - blockchain
-name: chia
+name: chiah
 sources:
 - https://github.com/Chia-Network/chia-blockchain
 - https://github.com/orgs/chia-network/packages/container/package/chia
