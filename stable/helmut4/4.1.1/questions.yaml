@@ -8,15 +8,15 @@ groups:
   - name: "Networking"
     description: "Configure networking for Chia container"
 
-portals:
-  web_portal:
-    protocols:
-      - "https"
-    host:
-      - "www.truepool.io"
-    ports:
-      - "443"
-    path: "/kb/truepool-docker-image/"
+# portals:
+#   web_portal:
+#     protocols:
+#       - "https"
+#     host:
+#       - "www.truepool.io"
+#     ports:
+#       - "443"
+#     path: "/kb/truepool-docker-image/"
 
 questions:
   - variable: farmr_env
