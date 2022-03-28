@@ -3,7 +3,7 @@ groups:
     description: "Configure Storage for Chia"
   - name: "Port"
     description: "Configure Helmut4 Port"
-  
+
 portals:
   web_portal:
     protocols:
@@ -15,32 +15,47 @@ portals:
     path: "/"
 
 questions:
-  - variable: appVolumeMounts 
-    label: "Helmut4 Host Path Volumes"
+  - variable: appVolumeMounts
+    label: "Helmut4 Storage"
     group: "Storage"
     schema:
-      type: list
-      items:
-        - variable: extraAppVolumeMounts
-          label: "Helmut4 Host Path Volume"
-          description: "Add a host path volume for Helmut4 application"
+      type: dict
+      attrs:
+        - variable: config
+          label: "Configuration Volume"
           schema:
             type: dict
             attrs:
+              - variable: datasetName
+                label: "Configuration Volume Dataset Name"
+                schema:
+                  type: string
+                  hidden: true
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "config"
+                  editable: false
               - variable: mountPath
-                label: "Mount Path in Pod"
+                label: "Configuration Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
-                  default: /Volumes/helmut
                   type: path
-                  required: true
-              - variable: hostPath
-                label: "Host Path"
-                description: "Host path"
+                  hidden: true
+                  editable: true
+                  default: "/data"
+              - variable: hostPathEnabled
+                label: "Enable Custom Host Path for Helmut4 Configuration Volume"
                 schema:
-                  type: hostpath
-                  required: true
-
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for Helmut4 Configuration Volume"
+                      schema:
+                        type: hostpath
+                        required: true
   - variable: nodePorts
     description: "Networking Configuration"
     label: "Port configuration for Helmut4"
