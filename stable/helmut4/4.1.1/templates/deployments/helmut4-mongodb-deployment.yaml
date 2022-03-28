@@ -28,9 +28,10 @@ spec:
           value: {{ .Values.mongodbSettings.username }}
         - name: MONGO_INITDB_ROOT_PASSWORD
           value: {{ .Values.mongodbSettings.password }}
-        volumeMounts:
+        volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
         - mountPath: /data/db
           name: mongodb-storage
-      volumes:
-      - name: mongodb-storage
-        emptyDir: {}
+      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+        - name: mongodb-storage
+          hostPath:
+            path: {{ .Values.extraAppVolumeDatabase.hostPath }}

@@ -38,3 +38,10 @@ spec:
           value: "{{ .Values.mongodbSettings.backup.MAX_BACKUPS }}"
         - name: INIT_BACKUP
           value: "{{ .Values.mongodbSettings.backup.INIT_BACKUP }}"
+        volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
+        - mountPath: /backup
+          name: mongodb-backup
+      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+        - name: mongodb-backup
+          hostPath:
+            path: {{ .Values.extraAppVolumeDatabaseBackups.hostPath }}          
