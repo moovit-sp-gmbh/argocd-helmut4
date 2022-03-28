@@ -19,6 +19,7 @@ questions:
     label: "Helmut4 Host Path Volumes"
     group: "Storage"
     schema:
+      required: true
       type: list
       items:
         - variable: extraAppVolume
@@ -47,6 +48,7 @@ questions:
     description: "Add an extra host path volume for the Helmut4 Database"
     schema:
       type: dict
+      required: true
       attrs:
         - variable: hostPath
           label: "Host Path"
@@ -60,6 +62,7 @@ questions:
     description: "Add an extra host path volume for the Helmut4 Database backups"
     schema:
       type: dict
+      required: true
       attrs:
         - variable: hostPath
           label: "Host Path"
