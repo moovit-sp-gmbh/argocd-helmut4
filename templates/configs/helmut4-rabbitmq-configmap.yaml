@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.appname}}-rabbitmq
+  name: {{ .Values.appname }}-rabbitmq
 data:
   rabbitmq.conf: |-
     listeners.tcp.default = 5672
