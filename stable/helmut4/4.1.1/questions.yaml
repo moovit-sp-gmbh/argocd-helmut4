@@ -32,6 +32,7 @@ questions:
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  default: /Volumes/helmut
                   required: true
               - variable: hostPath
                 label: "Host Path"

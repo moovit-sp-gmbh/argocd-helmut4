@@ -17,7 +17,8 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
-      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+      # volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+      volumes:
       {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}
           hostPath:
@@ -27,7 +28,8 @@ spec:
       - name: {{ .Values.appname }}-fx
         image: "{{ .Values.images.mcp_fx.name }}:{{ .Values.images.mcp_fx.version }}"
         imagePullPolicy: {{ .Values.images.mcp_fx.pullPolicy }}
-        volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
+        # volumeMounts: 
+        volumeMounts:
           {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
