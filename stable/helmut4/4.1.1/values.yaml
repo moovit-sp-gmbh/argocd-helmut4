@@ -14,6 +14,8 @@ containerResources:
       memory: "500Mi"
       cpu: "500m"
 
+appVolumeMounts:
+
 images:
   mcp_fx:
     name: repo.moovit24.de:443/mcp_fx
