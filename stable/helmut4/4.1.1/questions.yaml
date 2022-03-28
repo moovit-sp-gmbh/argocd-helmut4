@@ -41,6 +41,30 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+        - variable: extraAppVolumeDatabase
+          label: "Helmut4 Database Path Volume"
+          description: "Add an extra host path volume for the Helmut4 Database"
+          schema:
+            type: dict
+            attrs:
+              - variable: hostPath
+                label: "Host Path"
+                description: "The path on your TrueNAS"
+                schema:
+                  type: hostpath
+                  required: true
+        - variable: extraAppVolumeDatabaseBackups
+          label: "Helmut4 Database Backups Path Volume"
+          description: "Add an extra host path volume for the Helmut4 Database backups"
+          schema:
+            type: dict
+            attrs:
+              - variable: hostPath
+                label: "Host Path"
+                description: "The path on your TrueNAS"
+                schema:
+                  type: hostpath
+                  required: true
 
   - variable: nodePorts
     description: "Networking Configuration"
