@@ -6,10 +6,6 @@ metadata:
     app: {{ .Values.appname }}
     component: streams
 spec:
-  hostAliases:
-  - ip: "127.0.0.1"
-    hostnames:
-    - "helmut4-streams"
   selector:
     matchLabels:
       app: {{ .Values.appname }}
@@ -26,7 +22,11 @@ spec:
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
-      {{ end }}        
+      {{ end }}  
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "helmut4-streams"            
       containers:
       - name: {{ .Values.appname }}-streams
         image: "{{ .Values.images.mcc_streams.name }}:{{ .Values.images.mcc_streams.version }}"
