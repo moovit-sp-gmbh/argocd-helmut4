@@ -38,5 +38,5 @@ spec:
         env:
         - name: parameters
           value: |-           
+            --mcc.stream.url=http://localhost:8001/v1/streams          
 {{- include "helmut.env" . | indent 12}}
-            --mcc.stream.url=http://localhost:8001/v1/streams
