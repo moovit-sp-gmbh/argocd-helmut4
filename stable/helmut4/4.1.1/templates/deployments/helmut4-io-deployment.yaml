@@ -39,3 +39,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.io.url=http://localhost:8102/v1/io

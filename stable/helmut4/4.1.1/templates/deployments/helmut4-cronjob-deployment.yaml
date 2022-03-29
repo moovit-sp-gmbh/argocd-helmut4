@@ -29,3 +29,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.cronjob.url=http://localhost:8008/v1/cronjob

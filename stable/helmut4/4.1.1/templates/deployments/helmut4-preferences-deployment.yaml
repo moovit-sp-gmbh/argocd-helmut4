@@ -28,3 +28,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.preference.url=http://localhost:8002/v1/preferences

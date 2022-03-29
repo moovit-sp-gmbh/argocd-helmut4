@@ -28,3 +28,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.logging.url=http://localhost:8004/v1/logging

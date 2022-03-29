@@ -28,3 +28,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.license.url=http://localhost:8006/v1/license

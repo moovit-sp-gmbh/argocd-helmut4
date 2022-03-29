@@ -39,3 +39,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.users.url=http://localhost:8000/v1/members

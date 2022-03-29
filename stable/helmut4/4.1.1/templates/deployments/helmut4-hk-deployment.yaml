@@ -39,3 +39,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.hk.url=http://localhost:8103/v1/hk

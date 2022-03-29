@@ -28,3 +28,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.metadata.url=http://localhost:8003/v1/metadata

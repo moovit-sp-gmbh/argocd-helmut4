@@ -28,3 +28,4 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
+            --mcc.language.url=http://localhost:8007/v1/language
