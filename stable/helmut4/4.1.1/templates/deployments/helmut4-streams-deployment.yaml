@@ -6,6 +6,10 @@ metadata:
     app: {{ .Values.appname }}
     component: streams
 spec:
+  hostAliases:
+  - ip: "127.0.0.1"
+    hostnames:
+    - "helmut4-streams"
   selector:
     matchLabels:
       app: {{ .Values.appname }}
@@ -38,5 +42,4 @@ spec:
         env:
         - name: parameters
           value: |-           
-            --mcc.stream.url=http://localhost:8001/v1/streams          
 {{- include "helmut.env" . | indent 12}}
