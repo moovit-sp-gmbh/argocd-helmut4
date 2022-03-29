@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-mongoadmin"            
       containers:
       - name: {{ .Values.appname }}-mongoadmin
         image: "{{ .Values.images.mcc_mongodb_admin.name }}:{{ .Values.images.mcc_mongodb_admin.version }}"

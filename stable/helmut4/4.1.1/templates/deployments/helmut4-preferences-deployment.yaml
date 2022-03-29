@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-preferences"            
       containers:
       - name: {{ .Values.appname }}-preferences
         image: "{{ .Values.images.mcc_preferences.name }}:{{ .Values.images.mcc_preferences.version }}"
@@ -28,4 +32,3 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
-            --mcc.preference.url=http://localhost:8002/v1/preferences

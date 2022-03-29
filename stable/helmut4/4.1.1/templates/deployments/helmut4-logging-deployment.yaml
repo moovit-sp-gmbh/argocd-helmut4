@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-logging"            
       containers:
       - name: {{ .Values.appname }}-logging
         image: "{{ .Values.images.mcc_logging.name }}:{{ .Values.images.mcc_logging.version }}"
@@ -28,4 +32,3 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
-            --mcc.logging.url=http://localhost:8004/v1/logging

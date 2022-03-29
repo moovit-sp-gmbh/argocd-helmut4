@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-amqp"
       containers:
       - name: {{ .Values.appname }}-amqp
         image: "{{ .Values.images.mcc_amqp.name }}:{{ .Values.images.mcc_amqp.version }}"
@@ -28,4 +32,3 @@ spec:
         - name: parameters
           value: |-                     
 {{- include "helmut.env" . | indent 12}}
-            --mcc.amqp.url=http://localhost:8005/v1/amqp/send"

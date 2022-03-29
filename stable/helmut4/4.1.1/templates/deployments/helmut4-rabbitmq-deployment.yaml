@@ -18,6 +18,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-rabbitmq"            
       containers:
       - name: {{ .Values.appname }}-rabbitmq
         image: "{{ .Values.images.mcc_rabbitmq.name }}:{{ .Values.images.mcc_rabbitmq.version }}"

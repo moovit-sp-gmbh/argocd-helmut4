@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-metadata"            
       containers:
       - name: {{ .Values.appname }}-metadata
         image: "{{ .Values.images.mcc_metadata.name }}:{{ .Values.images.mcc_metadata.version }}"
@@ -28,4 +32,3 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
-            --mcc.metadata.url=http://localhost:8003/v1/metadata

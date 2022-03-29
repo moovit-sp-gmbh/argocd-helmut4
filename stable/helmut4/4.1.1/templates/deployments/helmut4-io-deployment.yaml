@@ -23,6 +23,10 @@ spec:
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
       {{ end }} 
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-io"
       containers:
       - name: {{ .Values.appname }}-io
         image: "{{ .Values.images.mcp_io.name }}:{{ .Values.images.mcp_io.version }}"
@@ -39,4 +43,3 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
-            --mcc.io.url=http://localhost:8102/v1/io

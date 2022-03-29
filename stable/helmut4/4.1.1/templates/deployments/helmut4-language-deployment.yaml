@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-language"            
       containers:
       - name: {{ .Values.appname }}-language
         image: "{{ .Values.images.mcc_language.name }}:{{ .Values.images.mcc_language.version }}"
@@ -28,4 +32,3 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
-            --mcc.language.url=http://localhost:8007/v1/language

@@ -26,7 +26,7 @@ spec:
       hostAliases:
       - ip: "127.0.0.1"
         hostnames:
-        - "helmut4-streams"            
+        - "{{ .Values.appname }}-streams"      
       containers:
       - name: {{ .Values.appname }}-streams
         image: "{{ .Values.images.mcc_streams.name }}:{{ .Values.images.mcc_streams.version }}"

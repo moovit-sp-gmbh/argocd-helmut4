@@ -22,7 +22,11 @@ spec:
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
-      {{ end }}      
+      {{ end }}    
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-users"              
       containers:
       - name: {{ .Values.appname }}-users
         image: "{{ .Values.images.mcc_users.name }}:{{ .Values.images.mcc_users.version }}"
@@ -39,4 +43,3 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
-            --mcc.users.url=http://localhost:8000/v1/members

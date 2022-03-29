@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-traefik"            
       containers:
       - name: {{ .Values.appname }}-traefik
         image: "{{ .Values.images.mcc_traefik.name }}:{{ .Values.images.mcc_traefik.version }}"

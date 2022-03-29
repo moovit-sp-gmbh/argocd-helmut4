@@ -18,6 +18,10 @@ spec:
     spec:
       imagePullSecrets:
       - name: public.repo.moovit24.de
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "{{ .Values.appname }}-cronjob"      
       containers:
       - name: {{ .Values.appname }}-cronjob
         image: "{{ .Values.images.mcc_cronjob.name }}:{{ .Values.images.mcc_cronjob.version }}"
@@ -29,4 +33,3 @@ spec:
         - name: parameters
           value: |-           
 {{- include "helmut.env" . | indent 12}}
-            --mcc.cronjob.url=http://localhost:8008/v1/cronjob
