@@ -38,5 +38,5 @@ spec:
         env:
         - name: parameters
           value: |-           
+            --mcc.fx.url=http://localhost:8100/v1/fx          
 {{- include "helmut.env" . | indent 12}}
-            --mcc.fx.url=http://localhost:8100/v1/fx
