@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: v1
+description: A library chart for iX Official Catalog
+name: common
+type: library
+version: 2112.0.0

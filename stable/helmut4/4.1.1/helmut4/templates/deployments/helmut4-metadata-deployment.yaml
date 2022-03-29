@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appname }}-metadata
+  labels:
+    app: {{ .Values.appname }}
+    component: metadata
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appname }}
+        component: metadata
+    spec:
+      imagePullSecrets:
+      - name: public.repo.moovit24.de
+      containers:
+      - name: {{ .Values.appname }}-metadata
+        image: "{{ .Values.images.mcc_metadata.name }}:{{ .Values.images.mcc_metadata.version }}"
+        imagePullPolicy: {{ .Values.images.mcc_metadata.pullPolicy }}
+        resources: 
+{{- include "containerResources" . | indent 10 }}        
+{{- include "helmut.args" . | indent 8 }}        
+        env:
+        - name: parameters
+          value: |-           
+{{- include "helmut.env" . | indent 12}}
+            --mcc.metadata.url=http://localhost:8003/v1/metadata
