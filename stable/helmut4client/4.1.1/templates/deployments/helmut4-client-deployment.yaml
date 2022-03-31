@@ -23,7 +23,7 @@ spec:
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
       {{ end }} 
-        - name: homefolder
+        - name: homefolder-1
           hostPath:
             path: {{ .Values.extraAppVolumeMountsAutologin.hostPath }}
       containers:
@@ -35,7 +35,7 @@ spec:
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}   
-        - mountPath: "/root/MoovIT GmbH/HelmutClient"
-          name: homefolder
+          - name: homefolder-1
+            mountPath: "/root/MoovIT GmbH/HelmutClient"
         resources: 
 {{- include "containerResources" . | indent 10 }}        
