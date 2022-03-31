@@ -29,8 +29,8 @@ spec:
         - "{{ .Values.appname }}-client"
       containers:
       - name: {{ .Values.appname }}-client
-        image: "{{ .Values.images.mcp_fx.name }}:{{ .Values.images.mcp_fx.version }}"
-        imagePullPolicy: {{ .Values.images.mcp_fx.pullPolicy }}
+        image: "{{ .Values.images.mcp_hc.name }}:{{ .Values.images.mcp_hc.version }}"
+        imagePullPolicy: {{ .Values.images.mcp_hc.pullPolicy }}
         volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
           {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeAutologin }}
             - name: extrappvolume-{{ $index }}

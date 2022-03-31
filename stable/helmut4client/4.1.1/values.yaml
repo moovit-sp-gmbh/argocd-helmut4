@@ -11,4 +11,13 @@ containerResources:
 
 appVolumeMounts:
 
-autoLoginFile:
+images:
+  mcp_hc:
+    name: repo.moovit24.de:443/mcp_hc
+    version: 4.1.0.1
+    imagePullPolicy: IfNotPresent
+
+registryCredentials:
+  registry: repo.moovit24.de:443
+  username: moovit
+  password: public
