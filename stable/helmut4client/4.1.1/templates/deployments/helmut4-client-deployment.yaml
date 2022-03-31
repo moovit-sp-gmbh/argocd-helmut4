@@ -35,7 +35,7 @@ spec:
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}   
-        - mountPath: "/root/MoovIT GmbH/HelmutClient"
-          name: homefolder
+          - mountPath: "/root/MoovIT GmbH/HelmutClient"
+            name: homefolder
         resources: 
 {{- include "containerResources" . | indent 10 }}        
