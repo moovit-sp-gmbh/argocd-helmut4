@@ -32,9 +32,7 @@ spec:
         image: "{{ .Values.images.mcp_hc.name }}:{{ .Values.images.mcp_hc.version }}"
         imagePullPolicy: {{ .Values.images.mcp_hc.pullPolicy }}
         volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
-          {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeAutologin }}
-            - name: extrappvolume-{{ $index }}
-              mountPath: "/root/MoovIT GmbH/HelmutClient"
-          {{ end }}    
+        - name: homefolder
+          mountPath: "/root/MoovIT GmbH/HelmutClient"
         resources: 
 {{- include "containerResources" . | indent 10 }}        
