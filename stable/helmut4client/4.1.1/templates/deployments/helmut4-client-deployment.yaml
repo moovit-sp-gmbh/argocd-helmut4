@@ -22,7 +22,10 @@ spec:
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
-      {{ end }}        
+      {{ end }} 
+      - name: homefolder
+        hostPath:
+          path: {{ .Values.extraAppVolumeAutologin.hostPath }}
       containers:
       - name: {{ .Values.appname }}-client
         image: "{{ .Values.images.mcp_hc.name }}:{{ .Values.images.mcp_hc.version }}"
@@ -32,5 +35,7 @@ spec:
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}   
+        - mountPath: "/root/MoovIT GmbH/HelmutClient"
+          name: homefolder
         resources: 
 {{- include "containerResources" . | indent 10 }}        

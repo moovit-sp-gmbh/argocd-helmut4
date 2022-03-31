@@ -1,6 +1,6 @@
 groups:
   - name: "Storage"
-    description: "Configure Storage for Helmut4"
+    description: "Configure Storage for Helmut4 Client"
   
 
 questions:
