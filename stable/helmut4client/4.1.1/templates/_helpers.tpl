@@ -3,11 +3,11 @@
 {{- end }}
 
 {{- define "containerResources"}}
-requests:
-    memory: {{.Values.containerResources.resources.requests.memory}}
-    cpu: {{.Values.containerResources.resources.requests.cpu}}
-limits:
-    memory: {{.Values.containerResources.resources.limits.memory}}
-    cpu: {{.Values.containerResources.resources.limits.memory}}
+# requests:
+#     memory: {{.Values.containerResources.resources.requests.memory}}
+#     cpu: {{.Values.containerResources.resources.requests.cpu}}
+# limits:
+#     memory: {{.Values.containerResources.resources.limits.memory}}
+#     cpu: {{.Values.containerResources.resources.limits.memory}}
 {{- end}}
 
