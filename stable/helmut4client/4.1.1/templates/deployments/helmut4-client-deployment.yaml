@@ -23,9 +23,9 @@ spec:
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
       {{ end }} 
-      - name: homefolder
-        hostPath:
-          path: {{ .Values.extraAppVolumeMountsAutologin.hostPath }}
+        - name: homefolder
+          hostPath:
+            path: {{ .Values.extraAppVolumeMountsAutologin.hostPath }}
       containers:
       - name: {{ .Values.appname }}-client
         image: "{{ .Values.images.mcp_hc.name }}:{{ .Values.images.mcp_hc.version }}"
