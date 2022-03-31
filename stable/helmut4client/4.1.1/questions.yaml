@@ -31,7 +31,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-  - variable: extraAppVolumeAutologin
+  - variable: extraAppVolumeMountsAutologin
     label: "Helmut4 home folder containing a helmut.auto.login File"
     group: "Storage"
     description: "Add a home folder for Helmut4 Client that contains helmut.auto.login File"

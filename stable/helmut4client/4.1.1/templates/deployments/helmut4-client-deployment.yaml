@@ -25,7 +25,7 @@ spec:
       {{ end }} 
       - name: homefolder
         hostPath:
-          path: {{ .Values.extraAppVolumeAutologin.hostPath }}
+          path: {{ .Values.extraAppVolumeMountsAutologin.hostPath }}
       containers:
       - name: {{ .Values.appname }}-client
         image: "{{ .Values.images.mcp_hc.name }}:{{ .Values.images.mcp_hc.version }}"
