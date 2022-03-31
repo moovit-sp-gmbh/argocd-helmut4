@@ -5,7 +5,7 @@ dependencies:
 - name: common
   repository: file://../../../library/common/2112.0.0
   version: 2112.0.0
-description: Helmut4
+description: Helmut4 Client
 home: https://github.com/moovit-sp-gmbg/helm-helmut4
 icon: https://support.helmut.de/wp-content/uploads/2021/07/H.png
 maintainers:

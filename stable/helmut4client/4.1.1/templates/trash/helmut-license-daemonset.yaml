@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helmut-license-daemonset
+  labels:
+    app: helmut
+    component: license
+spec:
+  selector:
+    matchLabels:
+      app: helmut
+  template:
+    metadata:
+      labels:
+        app: helmut
+        component: license
+    spec:
+      imagePullSecrets:
+      - name: moovit-docker-registry
+      containers:
+      - name: license
+        image: "repo.moovit24.de:443/mcc_license:{{ .Values.images.versions.mcc_license }}"
+        command: ["/bin/sh", "-c"]
+        args: ["java -XX:+UseSerialGC -Djava.security.egd=file:/dev/./urandom -jar /app/app.jar ${parameters}"]
+        env:
+        - name: parameters
+          value: |-
+{{- include "helpers.helmut.env" . | indent 12 }}
+
+---
+
+apiVersion: v1                       
+kind: Service                        
+metadata:                            
+ name: helmut-license-svc
+ labels:
+   app: helmut
+   component: license
+spec:                                
+ type: ClusterIP                     
+ selector:                          
+   app: helmut
+   component: license
+ ports:                             
+   - name:                      
+     port: 8006
+     targetPort: 8006

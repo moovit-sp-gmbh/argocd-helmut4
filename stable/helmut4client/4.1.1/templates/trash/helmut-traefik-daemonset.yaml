@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helmut-traefik-daemonset
+  labels:
+    app: helmut
+    component: traefik
+spec:
+  selector:
+    matchLabels:
+      app: helmut
+  template:
+    metadata:
+      labels:
+        app: helmut
+        component: traefik
+    spec:
+      imagePullSecrets:
+        - name: moovit-docker-registry
+      containers:
+        - name: traefik
+          image: "repo.moovit24.de:443/mcc_traefik:{{ .Values.images.versions.mcc_traefik }}"
+          args:
+            - --configfile=/etc/traefik-kubernetes/traefik.toml
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: helmut-traefik-svc
+#   labels:
+#     app: helmut
+#     component: traefik
+# spec:
+#   type: ClusterIP
+#   selector:
+#     app: helmut
+#     component: traefik
+#   ports:
+#     - name: eightzero
+#       port: 80
+#       targetPort: 80
+#     - name: fourfourthree
+#       port: 443
+#       targetPort: 443
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: helmut-traefik-svc
+  labels:
+    app: helmut
+    component: traefik
+spec:
+  type: NodePort
+  selector:
+    app: helmut
+    component: traefik
+  ports:
+    - name: traefik
+      port: 80
+      targetPort: 80
+      nodePort: 30000

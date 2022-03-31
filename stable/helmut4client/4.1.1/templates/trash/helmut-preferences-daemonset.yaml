@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helmut-preferences-daemonset
+  labels:
+    app: helmut
+    component: preferences
+spec:
+  selector:
+    matchLabels:
+      app: helmut
+  template:
+    metadata:
+      labels:
+        app: helmut
+        component: preferences
+    spec:
+      imagePullSecrets:
+      - name: moovit-docker-registry
+      containers:
+      - name: preferences
+        image: "repo.moovit24.de:443/mcc_preferences:{{ .Values.images.versions.mcc_preferences }}"
+        command: ["/bin/sh", "-c"]
+        args: ["java -XX:+UseSerialGC -Djava.security.egd=file:/dev/./urandom -jar /app/app.jar ${parameters}"]
+        env:
+        - name: parameters
+          value: |-
+{{- include "helpers.helmut.env" . | indent 12 }}
+
+---
+
+apiVersion: v1                       
+kind: Service                        
+metadata:                            
+ name: helmut-preferences-svc
+ labels:
+   app: helmut
+   component: preferences  
+spec:                                
+ type: ClusterIP                     
+ selector:                          
+   app: helmut
+   component: preferences                  
+ ports:                             
+   - name:                      
+     port: 8002
+     targetPort: 8002

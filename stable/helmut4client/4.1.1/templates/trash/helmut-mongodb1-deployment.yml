@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helmut-mongodb1-deployment
+  labels:
+    app: helmut
+    database: mongodb1
+    component: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: helmut
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        database: mongodb1
+        app: helmut
+        component: mongodb
+    spec:
+      imagePullSecrets:
+      - name: moovit-docker-registry
+      # nodeSelector:
+      #   kubernetes.io/hostname: helmut1
+      containers:
+      - name: mongodb
+        image: "repo.moovit24.de:443/mcc_mongodbrs:{{ .Values.images.versions.mcc_mongodbrs }}"
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: root
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: bitte
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb1-storage
+      volumes:
+      - name: mongodb1-storage
+        hostPath:
+          path: /root/mongodb1
+          type: Directory
+
+---
+
+apiVersion: v1                       
+kind: Service                        
+metadata:                            
+ name: helmut-mongodb1-svc
+ labels:
+   app: helmut
+   component: mongodb  
+spec:                                
+ type: ClusterIP                     
+ selector:                          
+   app: helmut
+   database: mongodb1
+   component: mongodb                   
+ ports:                             
+   - name: mongodb                
+     port: 27017                       
+     targetPort: 27017                 
