@@ -6,7 +6,7 @@ dependencies:
   repository: file://../../../library/common/2112.0.0
   version: 2112.0.0
 description: Helmut4
-home: https://github.com/moovit-sp-gmbh/helm-helmut4
+home: https://github.com/moovit-sp-gmbh/helmut4-helm
 icon: https://support.helmut.de/wp-content/uploads/2021/07/H.png
 maintainers:
 - email: s.siebertz@moovit-sp.com
@@ -18,4 +18,4 @@ version: 4.6.1
 keywords:
 - helmut4
 sources:
-- https://github.com/moovit-sp-gmbh/helm-helmut4
+- https://github.com/moovit-sp-gmbh/helmut4-helm
