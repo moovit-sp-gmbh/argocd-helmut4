@@ -10,7 +10,7 @@
             "description": "Helmut4 is the project manager that helps you keep track of all your projects, templates, preferences and profiles of Adobe Premiere Pro and After Effects",
             "healthy": true,
             "healthy_error": null,
-            "home": "https://github.com/moovit-sp-gmbh/helmut4-helm/tree/truenas/stable/helmut4",
+            "home": "https://helmut.de",
             "location": "https://github.com/moovit-sp-gmbh/helmut4-helm/tree/truenas/stable/helmut4",
             "latest_version": "4.7.0",
             "latest_app_version": "4.7.0",
@@ -31,7 +31,7 @@
             "sources": [
                 "https://github.com/moovit-sp-gmbh/helmut4-helm/tree/truenas/stable/helmut4"
             ],
-            "icon_url": "https://www.moovit.de/wp-content/uploads/sites/2/2023/09/socialmedia-logo-beschnitten.png"
+            "icon_url": "https://support.helmut.de/wp-content/uploads/2021/07/H.png"
         },
         "helmut4client": {
             "app_readme": "<p>Helmut4 is the project manager that helps you keep track of all your projects, templates, preferences and profiles of Adobe Premiere Pro and After Effects supplied by MoovIT GmbH, for more information visit the manual: <a href=\"https://docs.helmut.de/helmut4-releases/\">https://docs.helmut.de/helmut4-releases/</a><p>",
@@ -41,7 +41,7 @@
             "description": "Helmut4 is the project manager that helps you keep track of all your projects, templates, preferences and profiles of Adobe Premiere Pro and After Effects",
             "healthy": true,
             "healthy_error": null,
-            "home": "https://github.com/moovit-sp-gmbh/helmut4-helm/tree/truenas/stable/helmut4client",
+            "home": "https://helmut.de",
             "location": "https://github.com/moovit-sp-gmbh/helmut4-helm/tree/truenas/stable/helmut4client",
             "latest_version": "4.7.0",
             "latest_app_version": "4.7.0",
@@ -62,7 +62,7 @@
             "sources": [
                 "https://github.com/moovit-sp-gmbh/helmut4-helm/tree/truenas/stable/helmut4client"
             ],
-            "icon_url": "https://www.moovit.de/wp-content/uploads/sites/2/2023/09/socialmedia-logo-beschnitten.png"
+            "icon_url": "https://support.helmut.de/wp-content/uploads/2021/07/H.png"
         }
     },
     "dependency": {},
